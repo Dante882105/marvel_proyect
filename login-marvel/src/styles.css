@@ -1,0 +1,368 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+/*HEADER*/
+header{
+    background-color: #202020;
+}
+
+nav{
+    height: 8vh;
+    color: antiquewhite
+}
+
+.selected{
+    background-color: #EC1D24 !important;
+    border-radius: 12px !important;
+}
+
+#logo{
+    height: 100%;
+    width: 20%;
+}
+
+#logo img{
+    height: 90%;
+}
+
+
+#navContainer{
+    height: 100%;
+    width: 80%;
+}
+
+#listNav{
+    height: 100%;
+    width: 100%;
+}
+
+#listNav li{
+    display: flex;
+    flex-direction: column;
+    width: 7%;
+    height: 100%;
+    margin: auto 0.1%;
+}
+
+#listNav li:hover{
+    background-color: #EC1D24;
+    color: black;
+    border-radius: 12px;
+}
+
+body{
+    background-color: #000000;
+    background-image: url('./assets/images/background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Slider */
+#carousel{
+    height: 87vh;
+}
+
+#slide{
+    height: 80vh;
+    margin: 1% auto;
+}
+
+.carousel-item{
+    width: 100%;
+    height: 80vh;
+}
+
+.carousel-item img{
+    width: 100%;
+    height: 100%;
+    max-width: 2550px;
+    max-height: 900px;
+}
+
+#arrow{
+    color: #29679e;
+    font-size: 50px;
+}
+
+/*FORMS*/
+#log, #record, #contact{
+    width: 100%;
+    height: 87vh;
+}
+
+#login, #sign-up, #contactUs{
+    color: aliceblue;
+    background-color: #202020;
+}
+
+#login{
+    width: 30%;
+}
+
+.input{
+    height: 100px;
+}
+
+form label{
+    width: 100%;
+}
+
+form input[type=submit]{
+    background-color: #EC1D24;
+    width: 30%;
+    height: 40px;
+    font-weight: bolder;
+    border-radius: 12px;
+    border: 1px solid rgb(41, 41, 41);
+    cursor: pointer;
+    color: #ffff
+}
+
+form input[type=text],form input[type=password],form input[type=number],form input[type=email]{
+    width: 80%;
+    height: 40px;
+    border: 1px solid #E37126;
+}
+
+textarea{
+    height: 110px;
+    width: 80%;
+    border: 1px solid #E37126;
+}
+
+#redirect button{
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid darkgray;
+    font-weight: bolder;
+    font-size: 12px;
+    background-color: #202020;
+    color:#EC1D24;
+}
+
+.red{
+    display: inline-block;
+    position: absolute;
+    right: 11%;
+    top: 30%;
+    color: red
+}
+/*Modal*/
+#modal{
+    background-color: #080808;
+}
+.modal-header, .modal-body, .modal-footer{
+    color: antiquewhite;
+}
+#btn{
+    background-color: red;
+}
+
+/*Footer*/
+footer{
+    height: 2vh;
+    color: #ffff;
+    font-weight: bold;
+}
+
+@media (max-width: 576px){
+    *{
+        font-size: 12px;
+    }
+    /*HEADWER*/
+    #listNav{
+        display: block;
+        position: absolute;
+        left: 0%;
+        top: 8vh;
+        background-color: #080808;
+        width: 100% !important;
+        height: 100vh;
+        z-index: 10;
+    }
+
+    #listNav li{
+        width: 100%;
+        height: 20%;
+        margin: auto;
+        padding-top: 5%;
+    }
+
+    #hamburguer{
+        display: block;
+        position: absolute;
+        right: 5%;
+    }
+
+    #btnHamburguer{
+        background-color: #080808;
+        color: #EC1D24;
+        border-color: #EC1D24;
+    }
+
+    #listNav li i, #listNav li strong{
+        font-size: 25px !important;
+    }
+
+    /*Home*/
+    #carousel{
+        margin: 10vh auto;
+        height: 67vh;
+    }
+
+    #slide{
+        height: 50vh;
+    }
+
+    .carousel-item{
+        width: 90%;
+        height: 58vh;
+        box-sizing: border-box;
+    }
+
+    .carousel-item img{
+        max-width: 400px;
+        max-height: 400px;
+    }
+
+    #arrow{
+        color: #20A033;
+        font-size: 30px;
+    }
+
+    /*FORMS*/
+    #log, #contact{
+        height: 85vh;
+        margin: 2vh auto;
+    }
+
+    #record{
+        overflow-y: scroll;
+        height: auto;
+        margin: 2vh auto;
+    }
+
+    #register ul{
+        flex-direction: column !important;
+    }
+
+    #login, #sign-up, #contactUs{
+        width: 90%;
+    }
+
+    #redirect button{
+        width: 50%;
+    }
+
+    /*Personal side*/
+    #personal{
+        height: 87vh;
+        overflow-y: scroll;
+    }
+
+}
+
+@media (min-width: 1024px){
+    *{
+        font-size: 12px;
+    }
+
+    /*HEADER*/
+    #listNav li{
+        width: 10%;
+        height: 90%;
+        margin: auto 0.2%;
+    }
+    /* #listNav li i{
+        margin-top: 10%;
+    } */
+
+    /*FORMS*/
+    #log, #record, #contact{
+        height: 85vh;
+        margin: 2vh auto;
+    }
+
+    #login, #contactUs{
+        width: 40%;
+    }
+
+    #sign-up{
+        width: 80%
+    }
+
+    #redirect button{
+        width: 50%;
+    }
+}
+
+@media (min-width: 1440px){
+    *{
+        font-size: 15px;
+    }
+
+    /*HEADER*/
+    #listNav li{
+        width: 7%;
+        height: 90%;
+        margin: auto 0.1%;
+    }
+
+    #listNav li i{
+        margin-top: 5%;
+    }
+
+    /*FORMS*/
+    #log, #record, #contact{
+        height: 85vh;
+        margin: 2vh auto;
+    }
+
+    #login, #contactUs{
+        width: 25%;
+    }
+
+    #sign-up{
+        width: 60%
+    }
+
+    #redirect button{
+        width: 50%;
+    }
+}
+
+@media (min-width: 2560px){
+    *{
+        font-size: 22px;
+    }
+
+    /*HEADER*/
+    #listNav li{
+        width: 8%;
+        height: 90%;
+    }
+
+    #listNav li i{
+        margin-top: 2%;
+    }
+
+    /*FORMS*/
+    #log, #record, #contact{
+        height: 80vh;
+        margin: 2vh auto;
+    }
+
+    #login, #contactUs{
+        width: 30%;
+    }
+
+    #sign-up{
+        width: 70%
+    }
+
+    #redirect button{
+        width: 40%;
+    }
+    form input[type=text],form input[type=password],form input[type=number],form input[type=email]{
+        height: 50px;
+    }
+}

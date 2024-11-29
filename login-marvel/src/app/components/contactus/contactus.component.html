@@ -1,0 +1,62 @@
+<div id="contact" class="d-flex justify-content-center align-items-center">
+    <div id="contactUs" class="col-4 rounded pt-3 pb-3">
+        <form action="" [formGroup]="contactUsForm" (ngSubmit)="onSubmit()">
+            <h2 class="text-center">CONTACT US</h2>
+            <ul class="px-0 text-center">
+                <li class="list-group-item input">
+                    <label class="text-center" for="name">Name</label>
+                    <input class ="rounded-bottom mx-auto d-block" type="text" placeholder="Name" name="name" id="name" formControlName="name">
+                    <i [ngClass]="{'bi bi-x-circle-fill red': nameValidation}"></i>
+                    <small *ngIf="nameValidation" class="text-warning col-10">Do not use special characters (#, $, *, etc.) or type more than 4 and less than 40 characters</small>
+                </li>
+                <li class="list-group-item input">
+                    <label class="text-center" for="identification">Identification</label>
+                    <input class ="rounded-bottom mx-auto d-block" type="text" placeholder="Identification" name="identification" id="identification" formControlName="identification">
+                    <i [ngClass]="{'bi bi-x-circle-fill red':identificationValidation}"></i>
+                    <small *ngIf="identificationValidation" class="text-warning">Please do not use special characters (#, $, *, etc.) or type more than 2 characters</small>
+                </li>
+                <li class="list-group-item input">
+                    <label class="text-center" for="country">Country</label>
+                    <input class ="rounded-bottom mx-auto d-block" type="text" placeholder="country" name="country" id="country" formControlName="country">
+                    <i [ngClass]="{'bi bi-x-circle-fill red':countryValidation}"></i>
+                    <small *ngIf="countryValidation" class="text-warning">Please do not use special characters (#, $, *, etc.) or type more than 3 characters</small>
+                </li>
+                <li class="list-group-item input">
+                    <label class="text-center" for="email">E-mail</label>
+                    <input class ="rounded-bottom mx-auto d-block" type="email" placeholder="E-mail" name="mail" id="mail" formControlName="mail">
+                    <i [ngClass]="{'bi bi-x-circle-fill red':mailValidation}"></i>
+                    <small *ngIf="mailValidation" class="text-warning">Verify your e-mail</small>
+                </li>
+                <li class="list-group-item">
+                    <label class="text-center" for="message">Message</label>
+                    <textarea class="mx-auto d-block rounded-bottom" name="message" cols="30" rows="10" placeholder="Message" id="message" formControlName="message"></textarea>
+                    <i [ngClass]="{'bi bi-x-circle-fill red':messageValidation}"></i>
+                    <small *ngIf="messageValidation" class="text-warning">Please do not use special characters (#, $, *, etc.)</small>
+                </li>
+                <li class="input list-group-item d-flex align-items-center">
+                    <input type="submit" value="Send" name="send" class="mx-auto d-block" [disabled]="contactUsForm.invalid" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                </li>
+            </ul>
+            <div class="redirect">
+                <p class="text-center">If you already have an account, <strong role="button" class="text-decoration-underline" routerLink="/login">log in here</strong></p>
+            </div>
+        </form>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content" id="modal">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">For Your Information</h1>
+            </div>
+            <div class="modal-body text-center">
+              <p *ngIf="this.info">{{this.info.message}}</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn bg-secondary text-white" data-bs-dismiss="modal">Close</button>
+              <button id="btn" type="button" class="btn" routerLink="/login" data-bs-dismiss="modal">Understood</button>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<header class="border-bottom">
+    <nav class="navbar mx-0 px-0 pt-0 pb-0">
+        <div id="logo">
+            <a href="https://developer.marvel.com/" target="_blanck">
+                <img src="../../../assets/images/logo_marvel.png" alt="logo marvel">
+            </a>
+        </div>
+        <div id="hamburguer" class="d-sm-none">
+            <button id="btnHamburguer" type="button" data-bs-toggle="collapse" href="#navContainer" class="rounded">
+                <i class="bi bi-list fs-3"></i>
+            </button>
+        </div>
+        <div id="navContainer" class="collapse-sm collapse-horizontal">
+            <ul id="listNav" class="d-sm-flex flex-sm-direction-row justify-content-end mt-0 mb-0 px-0 mx-auto fs-5 text-center">
+                <li class="list-group-item" role="button" routerLink="/home" routerLinkActive="selected" data-bs-toggle="collapse-sm collapse-horizontal" href="#navContainer">
+                    <i class="bi bi-house-door-fill"></i>
+                    <strong>Home</strong>
+                </li>
+                <li class="list-group-item" role="button" routerLink="/login" routerLinkActive="selected">
+                    <i class="bi bi-box-arrow-in-right"></i>
+                    <strong>Login</strong>
+                </li>
+                <li class="list-group-item" role="button" routerLink="/singn-up" routerLinkActive="selected">
+                    <i class="bi bi-person-vcard"></i>
+                    <strong>Sign Up</strong>
+                </li>
+                <!-- <li class="list-group-item" role="button" routerLink="/contact-us" routerLinkActive="selected">
+                    <i class="bi bi-cup-hot-fill"></i>
+                    <strong>Contact Us</strong>
+                </li> -->
+                <!-- <li class="list-group-item" role="button" id="lenguage" (click)="toggleLanguage()">
+                    <i class="bi bi-translate"></i>
+                    <strong>English</strong>
+                    <strong class="d-none">Español</strong>
+                </li> -->
+            </ul>
+        </div>
+    </nav>
+</header>

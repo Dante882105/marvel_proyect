@@ -1,0 +1,54 @@
+*{
+    text-decoration: none;
+}
+
+.enabled a{
+    color: black;
+}
+
+.enabled:hover, .disabled:hover{
+    box-shadow: 5px 5px 5px rgba(126, 126, 126, 0.678);
+    transition: 500ms;
+}
+
+.enabled:hover a> img{
+    width: 88%;
+    transition: 500ms;
+}
+
+.enabled:hover a > p{
+    margin-bottom: 0;
+    transition: 500ms;
+}
+
+.soon{
+    height: 100%;
+    opacity: 0;
+    background-color: #29679ec9;
+    visibility: hidden;
+}
+
+.soon > p{
+    margin-top: 35%;
+}
+
+.disabled:hover > .soon{
+    opacity: 1;
+    visibility: visible;
+    transition: 500ms;
+}
+
+#loader{
+  height: 93vh;
+  background-color: rgb(0, 0, 0);
+}
+
+@media (max-width: 576px){
+    .ready:hover{
+        width: 120px;
+    }
+    .soon:hover{
+        opacity: 1;
+        visibility: visible;
+    }
+}

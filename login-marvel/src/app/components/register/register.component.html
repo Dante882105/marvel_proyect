@@ -1,0 +1,94 @@
+<div id="record" class="d-flex justify-content-center align-items-center">
+    <div class="col-8 mx-auto rounded pt-3 pb-3" id="sign-up">
+        <form id="register" [formGroup]="singnUpForm" (ngSubmit)="onSubmit()">
+            <h2 class="text-center mb-3">SIGN UP</h2>
+            <ul class="d-flex flex-row px-0">
+                <div class="px-0 container-fluid text-center mx-auto">
+                    <li class="list-group-item input">
+                        <label for="name" class="text-center">Name</label>
+                        <input class="rounded-bottom" type="text" placeholder="Name" name="name" id="name" formControlName="firstName">
+                        <i [ngClass]="{'bi bi-x-circle-fill red':nameValidation}"></i>
+                        <br>
+                        <small *ngIf="nameValidation" class="text-warning">Do not use special characters (#, $, *, etc.) or type more than 4 and less than 40 characters</small>
+                    </li>
+                    <li class="list-group-item input">
+                        <label for="lastName" class="text-center">Last Name</label>
+                        <input class="rounded-bottom" type="text" placeholder="Last Name" name="lastName" id="lastName" formControlName="lastName">
+                        <i [ngClass]="{'bi bi-x-circle-fill red':lastNameValidation}"></i>
+                        <br>
+                        <small *ngIf="lastNameValidation" class="text-warning">Do not use special characters (#, $, *, etc.) or type more than 4 and less than 40 characters</small>
+                    </li>
+                    <li class="list-group-item input">
+                        <label for="identification" class="text-center">Identification</label>
+                        <input class="rounded-bottom" type="text" placeholder="Identification" name="identification" id="identification" formControlName="identification">
+                        <i [ngClass]="{'bi bi-x-circle-fill red':identificationValidation}"></i>
+                        <br>
+                        <small *ngIf="identificationValidation" class="text-warning">Please do not use special characters (#, $, *, etc.) or type more than 2 characters</small>
+                    </li>
+                    <li class="list-group-item input">
+                        <label for="username" class="text-center">Username</label>
+                        <input class="rounded-bottom" type="text" placeholder="Username" name="user_name" id="username" formControlName="username">
+                        <i [ngClass]="{'bi bi-x-circle-fill red':usernameValidation}"></i>
+                        <br>
+                        <div *ngIf="usernameValidation">
+                            <small *ngIf="this.singnUpForm.get('username')?.hasError('inUse')" class="text-warning">The username already exists in our database, please try a different one</small>
+                            <small *ngIf="this.singnUpForm.get('username')?.hasError('pattern')" class="text-warning">Username is invalid, please do not use special characters (#, $, *, etc.) or type more than 4 and less than 15 characters</small>
+                            <small *ngIf="this.singnUpForm.get('username')?.hasError('required')" class="text-warning">This field is required</small>
+                        </div>
+                    </li>
+                </div>
+                <div class="px-0 container-fluid text-center mx-auto">
+                    <li class="list-group-item input">
+                        <label for="mail" class="text-center">E-Mail</label>
+                        <input class="rounded-bottom" type="email" placeholder="E-mail" name="mail" id="mail" formControlName="email">
+                        <i [ngClass]="{'bi bi-x-circle-fill red':mailValidation}"></i>
+                        <br>
+                        <div *ngIf="mailValidation">
+                            <small *ngIf="this.singnUpForm.get('email')?.hasError('notAvailable')" class="text-warning">The email already exists in our database, enter a different email</small>
+                            <small *ngIf="this.singnUpForm.get('email')?.hasError('pattern')" class="text-warning">The email is invalid</small>
+                            <small *ngIf="this.singnUpForm.get('email')?.hasError('required')" class="text-warning">This field is required</small>
+                        </div>
+                    </li>
+                    <li class="list-group-item input">
+                        <label for="user_password" class="text-center ">Password</label>
+                        <input class="rounded-bottom" type="password" placeholder="Password" name="user_password" id="password" formControlName="password">
+                        <i [ngClass]="{'bi bi-x-circle-fill red':passwordValidation}"></i>
+                        <br>
+                        <small *ngIf="passwordValidation" class="text-warning">The password is invalid, try a password greater than 4 and less than 15 characters</small>
+                    </li>
+                    <li class="list-group-item input">
+                        <label for="confPass" class="text-center">Confirm your Password</label>
+                        <input class="rounded-bottom" type="password" placeholder="Confirm your Password" name="confPassword" id="confPassword" formControlName="confPassword">
+                        <i class="" [ngClass]="{'bi bi-x-circle-fill red':confPasswordValidation}"></i>
+                        <br>
+                        <small *ngIf="confPasswordValidation" class="text-warning">The passwords don't match</small>
+                    </li>
+                    <li class="list-group-item">
+                        <input class="mx-auto d-block" type="submit" value="SEND" name="send" [disabled]="singnUpForm.invalid" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    </li>
+                </div>
+            </ul>
+            <div class="redirect">
+                <p class="text-center">If you already have an account, <strong role="button" class="text-decoration-underline" routerLink="/login">log in here</strong></p>
+            </div>
+        </form>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" id="modal">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">For Your Information</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <p *ngIf="this.info">{{this.info.message}}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal">Close</button>
+            <button type="button" id="btn" class="btn" routerLink="/home" data-bs-dismiss="modal">Understood</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

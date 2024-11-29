@@ -1,0 +1,22 @@
+<div class="position-absolute d-flex justify-content-center align-items-center col-12" *ngIf="loader" id="loader">
+  <div class="col-12 text-center">
+    <img class="img-fluid col-10 mx-auto" src="../../../assets/images/loader_marvel.gif">
+  </div>
+</div>
+<div class="container-fluid mx-auto bg-white" id="personal">
+    <div class="mx-auto pt-4 pb-4">
+        <h1 class="text-center mt-1 mb-5">MARVEL COMICS</h1>
+        <ul *ngFor="let comic of comics" class="d-flex flex-row flex-wrap justify-content-center mx-auto px-0">
+          <li *ngFor="let comic of comics" class="col-6 col-md-4 list-group-item mb-3">
+            <div  class="text-center border col-8 mx-auto enabled" role="button">
+                    <img src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" alt="{{comic.title}}" class="img-galery col-10 mx-auto">
+                    <h5>{{ comic.title }}</h5>
+                    <p>{{comic.description}}</p>
+                <div class="soon position-absolute top-0 col-8">
+                    <p class="text-light text-center fs-2">{{comic.description}}</p>
+                </div>
+            </div>
+        </li>
+        </ul>
+    </div>
+</div>
